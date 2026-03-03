@@ -17,11 +17,11 @@ app.use(express.json());
 app.use(cors());
 
 // Conectar MongoDB (Tu string de conexión original)
-mongoose.connect("mongoose.connect(process.env.MONGO_URI)")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Conectado a MongoDB Atlas"))
   .catch(err => console.error("❌ Error de conexión:", err));
 
-const SECRET_KEY = "secreto_super_seguro_capun";
+const SECRET_KEY = process.env.JWT_SECRET || "secreto_de_respaldo";
 
 // MIDDLEWARE DE VERIFICACIÓN
 const verifyToken = (req, res, next) => {
