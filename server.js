@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 // Conectar MongoDB (Tu string de conexión original)
-mongoose.connect("mongodb+srv://capun_user:dPezfWkAPwK1giCF@capun-db.izd7i1h.mongodb.net/?appName=capun-db")
+mongoose.connect("mongoose.connect(process.env.MONGO_URI)")
   .then(() => console.log("✅ Conectado a MongoDB Atlas"))
   .catch(err => console.error("❌ Error de conexión:", err));
 
